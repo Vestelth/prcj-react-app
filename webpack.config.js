@@ -29,7 +29,7 @@ module.exports = {
                         options: {
                             modules: true,
                             importLoaders: 1,
-                            localIdentName: '[name]_[local]_[hash:base64:5]',
+                            localIdentName: '[name]_[local]_[hash:base64]',
                             sourceMap: process.env.NODE_ENV !== 'production'
                         }
                     },
