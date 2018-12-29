@@ -1,23 +1,43 @@
 import {
-    GET_REPOS_SUCCESS
+    GET_REPOS_BEGIN,
+    GET_REPOS_SUCCESS,
+    GET_REPOS_FAILURE
 } from './actions'
 
-import repoApi from '../api/repoApi'
+import githubApi from '../api/githubApi'
 
 
-export const getReposSuccess = (repos) => {
-    return {
-        type: GET_REPOS_SUCCESS,
-        repos
+export const getReposBegin = () => ({
+    type: GET_REPOS_BEGIN
+})
+
+export const getReposSuccess = (repos) => ({
+    type: GET_REPOS_SUCCESS,
+    payload: { repos }
+})
+
+export const getReposFailure = (error) => ({
+    type: GET_REPOS_FAILURE,
+    payload: { error }
+})
+
+export const getAllRepos = () => {
+    return dispatch => {
+        dispatch(getReposBegin())
+        return fetch(githubApi)
+            .then(handleErrors)
+            .then(res => res.json())
+            .then(json => {
+                dispatch(getReposSuccess(json.repos))
+                return json.repos
+            })
+            .catch(error => dispatch(getReposFailure(error)))
     }
 }
 
-export const loadRepos = () => {
-    return (dispatch) => {
-        return repoApi.getAllRepos()
-            .then(repos => dispatch(getReposSuccess(repos)))
-            .catch(error => {
-                throw (error)
-            })
+const handleErrors = (response) => {
+    if (!response.ok) {
+        throw Error(response.statusText)
     }
+    return response
 }

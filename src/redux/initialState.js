@@ -1,4 +1,6 @@
 export default {
-    length: 5,
-    repos: []
+    repos: [],
+    loading: false,
+    error: null,
+    length: 5
 }
