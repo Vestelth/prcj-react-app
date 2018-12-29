@@ -1,1 +1,1 @@
-export const githubApi = 'https://api.github.com/users/reduxjs/repos'
+export default 'https://api.github.com/users/reduxjs/repos'

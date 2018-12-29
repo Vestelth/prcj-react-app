@@ -23,13 +23,17 @@ export const getReposFailure = (error) => ({
 
 export const getAllRepos = () => {
     return dispatch => {
+        console.log('getRepos BEGIN');
+
         dispatch(getReposBegin())
         return fetch(githubApi)
             .then(handleErrors)
             .then(res => res.json())
             .then(json => {
-                dispatch(getReposSuccess(json.repos))
-                return json.repos
+                console.log('getRepos success')
+                console.log(json)
+                dispatch(getReposSuccess(json))
+                return json
             })
             .catch(error => dispatch(getReposFailure(error)))
     }

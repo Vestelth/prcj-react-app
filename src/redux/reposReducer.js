@@ -6,7 +6,7 @@ import {
 
 import initialState from './initialState'
 
-export default (state = initialState, action = {}) => {
+export default (state = initialState, action) => {
     switch (action.type) {
         case GET_REPOS_BEGIN:
             return {
