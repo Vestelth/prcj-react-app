@@ -1,11 +1,13 @@
 import {
-    GET_GITHUB_REPOS
+    GET_REPOS_SUCCESS
 } from './actions'
 
-export default (state = [], action = {}) => {
+import initialState from './initialState'
+
+export default (state = initialState.repos, action = {}) => {
     switch (action.type) {
-        case GET_GITHUB_REPOS:
-            const newState = [] // fetched data here
+        case GET_REPOS_SUCCESS:
+            action.repos
             return newState
         default:
             return state

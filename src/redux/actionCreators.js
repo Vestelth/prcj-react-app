@@ -1,8 +1,23 @@
-import { GET_GITHUB_REPOS } from './actions'
+import {
+    GET_REPOS_SUCCESS
+} from './actions'
 
-export const getGithubRepos = (payload = '') => {
+import repoApi from '../api/repoApi'
+
+
+export const getReposSuccess = (repos) => {
     return {
-        type: GET_GITHUB_REPOS,
-        payload
+        type: GET_REPOS_SUCCESS,
+        repos
+    }
+}
+
+export const loadRepos = () => {
+    return (dispatch) => {
+        return repoApi.getAllRepos()
+            .then(repos => dispatch(getReposSuccess(repos)))
+            .catch(error => {
+                throw (error)
+            })
     }
 }
