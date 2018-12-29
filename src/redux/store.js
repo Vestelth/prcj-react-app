@@ -8,8 +8,8 @@ export const reducer = combineReducers({
 })
 
 export default createStore(
-    applyMiddleware(thunk),
     initialState,
     reducer,
+    applyMiddleware(thunk),
     window.__REDUX_DEVTOOLS_EXTENTION__ && window.__REDUX_DEVTOOLS_EXTENTION__()
 )
