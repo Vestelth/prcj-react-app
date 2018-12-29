@@ -1,4 +1,5 @@
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import thunks from 'redux-thunk'
 import repos from './reposReducer'
 
 export const initialState = {
@@ -12,6 +13,7 @@ export const reducer = combineReducers({
 
 export default createStore(
     reducer,
+    applyMiddleware(thunk),
     initialState,
     window.__REDUX_DEVTOOLS_EXTENTION__ && window.__REDUX_DEVTOOLS_EXTENTION__()
 )
