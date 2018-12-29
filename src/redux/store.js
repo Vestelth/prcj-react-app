@@ -1,5 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
-import thunks from 'redux-thunk'
+import thunk from 'redux-thunk'
 import repos from './reposReducer'
 
 export const initialState = {
