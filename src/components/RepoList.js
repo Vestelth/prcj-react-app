@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getAllRepos } from '../redux/actionCreators'
 
+import Row from './Grid/Row'
+import Col from './Grid/Col'
+
 
 class RepoList extends Component {
     constructor() {
@@ -24,21 +27,21 @@ class RepoList extends Component {
         }
 
         return (
-            <ul className="repo-list">
+            <Row classes="repo-list">
                 {repos.slice(0, length).map(repo => {
                     const lastUpdate = repo.updated_at.slice(0, repo.updated_at.indexOf('T'))
+
                     return (
-                        <li key={repo.id}>
+                        <Col key={repo.id} bpoints={['xs-12', 'sm-6', 'lg-4']}>
                             <h2>{repo.name} by {repo.owner.login}</h2>
                             <p>{repo.description}</p>
                             <p>Last update: {lastUpdate}</p>
                             <p>Stars: {repo.stargazers_count}</p>
                             <a href={repo.svn_url} target="_blank">See more</a>
-                            <br/>
-                        </li>
+                        </Col>
                     )
                 })}
-            </ul>
+            </Row>
         )
     }
 }

@@ -4,14 +4,6 @@
     position: relative;
     width: 100%;
 
-    .flex-shrink {
-        flex: 0 0 auto;
-    }
-
-    .flex-grow {
-        flex: 1 0 auto;
-    }
-
     .flex-col {
         flex: 1 1 auto;
 
@@ -20,7 +12,7 @@
         }
     }
 
-    // Flex grid with breakpoints
+    // flex grid with breakpoints
     $flex-breakpoints: xs sm md lg xlg;
 
     // default
