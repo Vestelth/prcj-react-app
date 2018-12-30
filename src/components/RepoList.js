@@ -9,13 +9,11 @@ class RepoList extends Component {
     }
 
     componentDidMount() {
-        console.log('get all repos')
         this.props.dispatch(getAllRepos())
     }
 
     render() {
-        const { error, loading, repos } = this.props
-        console.log('propsy: ', this.props)
+        const { error, loading, repos, length } = this.props
 
         if (error) {
             return <div>Error! {error.message}</div>
@@ -27,14 +25,19 @@ class RepoList extends Component {
 
         return (
             <ul className="repo-list">
-                {repos.map(repo =>
-                    <li key={repo.id}>
-                        <h2>{repo.name} by {repo.owner.login}</h2>
-                        <p>{repo.description}</p>
-                        <a href={repo.svn_url} target="_blank">See more</a>
-                        <br/>
-                    </li>
-                )}
+                {repos.slice(0, length).map(repo => {
+                    const lastUpdate = repo.updated_at.slice(0, repo.updated_at.indexOf('T'))
+                    return (
+                        <li key={repo.id}>
+                            <h2>{repo.name} by {repo.owner.login}</h2>
+                            <p>{repo.description}</p>
+                            <p>Last update: {lastUpdate}</p>
+                            <p>Stars: {repo.stargazers_count}</p>
+                            <a href={repo.svn_url} target="_blank">See more</a>
+                            <br/>
+                        </li>
+                    )
+                })}
             </ul>
         )
     }
@@ -43,7 +46,8 @@ class RepoList extends Component {
 const mapStateToProps = state => ({
     repos: state.repos,
     loading: state.loading,
-    error: state.error
+    error: state.error,
+    length: state.length
 })
 
 export default connect(mapStateToProps)(RepoList)
