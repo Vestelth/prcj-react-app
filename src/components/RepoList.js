@@ -4,9 +4,9 @@ import { getAllRepos } from '../redux/actionCreators'
 
 
 class RepoList extends Component {
-    // constructor() {
-    //     super()
-    // }
+    constructor() {
+        super()
+    }
 
     componentDidMount() {
         console.log('get all repos')
@@ -42,8 +42,8 @@ class RepoList extends Component {
 
 const mapStateToProps = state => ({
     repos: state.repos,
-    loading: state.repos.loading,
-    error: state.repos.error
+    loading: state.loading,
+    error: state.error
 })
 
 export default connect(mapStateToProps)(RepoList)
