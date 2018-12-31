@@ -17,23 +17,23 @@ class RepoList extends Component {
     }
 
     render() {
-        const { error, loading, repos, length } = this.props
+        const {
+            error, loading, repos, length
+        } = this.props
 
         if (error) {
-            return <div>Error! {error.message}</div>
+            return <p>Error! {error.message}</p>
         }
-
         if (loading) {
-            // TODO: loader here
-            return <div>Loading...</div>
+            return <p>Loading...</p>
         }
 
         return (
             <Row classes="repo-list">
-                {repos.slice(0, length).map(repo => {
+                {repos.slice(0, length).map((repo, index) => {
                     return (
-                        <Col key={repo.id} bpoints={['xs-12', 'sm-6', 'lg-4']}>
-                            <RepoItem props={repo} />
+                        <Col key={repo.id} bpoints={['xs-12', 'md-6', 'lg-4']}>
+                            <RepoItem repo={repo} index={index} />
                         </Col>
                     )
                 })}

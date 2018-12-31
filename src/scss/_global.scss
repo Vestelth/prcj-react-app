@@ -6,13 +6,17 @@ body {
     height: 100%;
     font-size: $base-font-size;
     font-family: $base-font-family;
-}
+    color: $main-font-color;
+    background-color: $main-bg;
 
-.root {
-    height: 100%;
+    .root {
+        height: 100%;
+    }
 }
 
 h1 {
+    color: $white;
+    text-shadow: 1px 1px 3px $black;
     margin-bottom: 2rem;
 }
 
@@ -20,6 +24,18 @@ h1,
 h2,
 h3 {
     margin-top: 0;
+}
+
+a {
+    color: $beige;
+    transition: color .2s;
+    text-decoration: none;
+}
+
+p {
+    // color: $second-font-color;
+    color: $ash-gray;
+
 }
 
 ul {

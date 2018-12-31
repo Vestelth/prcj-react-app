@@ -2,10 +2,13 @@
 @import
 'variables',
 'breakpoints',
+'utils',
 'grid',
 'global';
 
 // component styles
 @import
 'components/app',
+'components/button',
+'components/icon',
 'components/repo-item';

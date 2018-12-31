@@ -1,10 +1,10 @@
 import React from 'react'
 
 const Col = (props) => {
-    let classes = 'flex-col '
+    let classes = 'col'
 
     for (let point of props.bpoints) {
-        classes += `flex-col-${point} `
+        classes += ` col-${point}`
     }
     return (
         <div className={classes}>

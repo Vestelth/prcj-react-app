@@ -2,7 +2,7 @@ import React from 'react'
 
 const Row = (props) => {
     return (
-        <div className={`flex-row ${props.classes}`}>
+        <div className={`row ${props.classes}`}>
             {props.children}
         </div>
     )

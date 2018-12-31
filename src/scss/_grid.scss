@@ -1,10 +1,10 @@
-.flex-row {
+.row {
     display: flex;
     flex-flow: row wrap;
     position: relative;
     width: 100%;
 
-    .flex-col {
+    .col {
         flex: 1 1 auto;
 
         @include breakpoint(sm) {
@@ -17,7 +17,7 @@
 
     // default
     @for $i from 12 through 1 {
-        .flex-col-#{$i} {
+        .col-#{$i} {
             width: percentage(($i/12));
             max-width: percentage(($i/12));
             flex: percentage(($i/12));
@@ -27,7 +27,7 @@
     @each $flex-breakpoint in $flex-breakpoints {
         @include breakpoint($flex-breakpoint) {
             @for $i from 12 through 1 {
-                .flex-col-#{$flex-breakpoint}-#{$i} {
+                .col-#{$flex-breakpoint}-#{$i} {
                     width: percentage(($i/12));
                     max-width: percentage(($i/12));
                     flex: percentage(($i/12));

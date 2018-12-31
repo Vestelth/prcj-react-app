@@ -1,18 +1,46 @@
 .repo-item {
-    background-color: $white;
-    border-radius: 15px;
-    padding: 15px 15px 30px;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 10px 0 darkgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $item-bg;
+    border-radius: 8px;
+    padding: 1.5rem 1.5rem 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 10px 0 $rich-black;
 
     @include breakpoint(sm) {
-        margin: 0 1rem 2rem 0;
+        min-height: 260px;
+        margin: 0 1rem 1rem 0;
     }
     @include breakpoint(lg) {
         min-height: 260px;
     }
 
+    &.is-even {
+        background-color: lighten($item-bg, 4%);
+    }
+
     h2 {
-        min-height: 54px;
+        color: $beige;
+        margin-bottom: .75rem;
+    }
+
+    p {
+        color: $steel-teal;
+    }
+
+    .repo-stars {
+        color: $beige;
+
+        .icon {
+            margin-right: 6px;
+            margin-bottom: -2px;
+        }
+    }
+
+    .repo-desc {
+        color: $ash-gray;
+        margin-top: 0;
+        margin-bottom: 2rem;
     }
 }

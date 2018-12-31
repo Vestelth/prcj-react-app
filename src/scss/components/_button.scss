@@ -1,0 +1,15 @@
+.button {
+    display: inline-block;
+    text-align: center;
+    color: $beige;
+    background-color: $steel-teal;
+    line-height: 2.5rem;
+    padding: 0 20px;
+    border-radius: 8px;
+    transition: background-color .2s;
+    margin-bottom: 1rem;
+
+    &:hover {
+        background-color: darken($steel-teal, 10%);
+    }
+}
