@@ -1,0 +1,18 @@
+.repo-item {
+    background-color: $white;
+    border-radius: 15px;
+    padding: 15px 15px 30px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px 0 darkgray;
+
+    @include breakpoint(sm) {
+        margin: 0 1rem 2rem 0;
+    }
+    @include breakpoint(lg) {
+        min-height: 260px;
+    }
+
+    h2 {
+        min-height: 54px;
+    }
+}

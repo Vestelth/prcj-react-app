@@ -1,5 +1,11 @@
+// general styles
 @import
 'variables',
 'breakpoints',
 'grid',
-'global'
+'global';
+
+// component styles
+@import
+'components/app',
+'components/repo-item';

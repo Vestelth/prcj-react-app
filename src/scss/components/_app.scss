@@ -1,0 +1,13 @@
+.app {
+    min-height: 100vh;
+    background-color: skyblue;
+    padding: 2rem 1rem 0;
+    margin: 0 auto;
+
+    @include breakpoint(sm) {
+        padding: 2rem 2rem 0;
+    }
+    @include breakpoint(lg) {
+        max-width: 1080px;
+    }
+}
