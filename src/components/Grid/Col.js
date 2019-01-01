@@ -9,10 +9,10 @@ const Col = ({
     children
 }) => {
     const classNames = {
-        xs: !isNaN(xs) ? `col-xs-${xs}` : '',
-        sm: !isNaN(sm) ? ` col-sm-${sm}` : '',
-        md: !isNaN(md) ? ` col-md-${md}` : '',
-        lg: !isNaN(lg) ? ` col-lg-${lg}` : ''
+        xs: xs !== '' ? `col-xs-${xs}` : '',
+        sm: sm !== '' ? ` col-sm-${sm}` : '',
+        md: md !== '' ? ` col-md-${md}` : '',
+        lg: lg !== '' ? ` col-lg-${lg}` : ''
     }
 
     let classString = ''
