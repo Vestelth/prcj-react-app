@@ -11,9 +11,9 @@ import RepoItem from './RepoItem/RepoItem'
 class RepoList extends Component {
     static propTypes = {
         repos: PropTypes.array.isRequired,
-        loading: PropTypes.number.isRequired,
-        error: PropTypes.object.isRequired,
-        dispatch: PropTypes.func.isRequired
+        loading: PropTypes.bool.isRequired,
+        error: PropTypes.object,
+        dispatch: PropTypes.func
     }
 
     componentDidMount() {
@@ -39,7 +39,10 @@ class RepoList extends Component {
             <Row classes="repo-list">
                 {repos.slice(0, REPOS_TO_SHOW).map((repo, index) => {
                     return (
-                        <Col key={repo.id} bpoints={['xs-12', 'md-6', 'lg-4']}>
+                        <Col key={repo.id}
+                            xs={12}
+                            md={6}
+                            lg={4}>
                             <RepoItem repo={repo} index={index} />
                         </Col>
                     )

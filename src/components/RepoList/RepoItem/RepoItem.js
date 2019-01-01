@@ -32,9 +32,9 @@ const RepoItem = ({ repo, index }) => {
 }
 
 RepoItem.propTypes = {
-    repo: PropTypes.array.isRequired,
+    repo: PropTypes.object.isRequired,
     index: PropTypes.number.isRequired,
-    dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func
 }
 
 export default RepoItem
