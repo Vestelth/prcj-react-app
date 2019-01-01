@@ -1,9 +1,8 @@
 # prcj-react-app
 
-to run:
+install dependencies: npm install
 
-npm install,
-npm start
+run: npm start
 
 production build:
 npm build
