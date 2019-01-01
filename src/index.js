@@ -1,16 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import store from './redux/store'
+
+import {
+    HashRouter,
+    Switch,
+    Route
+} from 'react-router-dom'
 
 import App from './App'
+import NotFound from './components/NotFound/NotFound'
 
 import 'normalize.css/normalize.css'
 import './scss/main.scss'
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
+        <HashRouter>
+            <Switch>
+                <Route exact path='/' component={App} />
+                <Route component={NotFound} />
+            </Switch>
+        </HashRouter>,
     document.getElementById('root')
 )
