@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import Button from '../../Button/Button'
 import Icon from '../../Icon/Icon'
-
 import star from '../../../assets/svg/star.svg'
 
 
@@ -21,13 +22,19 @@ const RepoItem = ({ repo, index }) => {
 
             <section>
                 <p className="repo-stars">
-                    <Icon src={star} />
+                    <Icon source={star} />
                     {repo.stargazers_count}
                 </p>
                 <p>Last update: {lastUpdate}</p>
             </section>
         </div>
     )
+}
+
+RepoItem.propTypes = {
+    repo: PropTypes.array.isRequired,
+    index: PropTypes.number.isRequired,
+    dispatch: PropTypes.func.isRequired
 }
 
 export default RepoItem

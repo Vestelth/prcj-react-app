@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getAllRepos } from '../../redux/actionCreators'
 
@@ -8,8 +9,11 @@ import RepoItem from './RepoItem/RepoItem'
 
 
 class RepoList extends Component {
-    constructor() {
-        super()
+    static propTypes = {
+        repos: PropTypes.array.isRequired,
+        loading: PropTypes.number.isRequired,
+        error: PropTypes.object.isRequired,
+        dispatch: PropTypes.func.isRequired
     }
 
     componentDidMount() {
@@ -17,8 +21,11 @@ class RepoList extends Component {
     }
 
     render() {
+        const REPOS_TO_SHOW = 5
         const {
-            error, loading, repos, length
+            error,
+            loading,
+            repos,
         } = this.props
 
         if (error) {
@@ -30,7 +37,7 @@ class RepoList extends Component {
 
         return (
             <Row classes="repo-list">
-                {repos.slice(0, length).map((repo, index) => {
+                {repos.slice(0, REPOS_TO_SHOW).map((repo, index) => {
                     return (
                         <Col key={repo.id} bpoints={['xs-12', 'md-6', 'lg-4']}>
                             <RepoItem repo={repo} index={index} />
@@ -46,7 +53,6 @@ const mapStateToProps = state => ({
     repos: state.repos,
     loading: state.loading,
     error: state.error,
-    length: state.length
 })
 
 export default connect(mapStateToProps)(RepoList)

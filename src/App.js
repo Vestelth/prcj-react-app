@@ -6,10 +6,6 @@ import store from './redux/store'
 
 
 class App extends Component {
-    constructor() {
-        super()
-    }
-
     render() {
         return (
             <Provider store={store}>

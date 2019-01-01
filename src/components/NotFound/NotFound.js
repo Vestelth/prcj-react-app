@@ -5,7 +5,8 @@ const NotFound = () => {
     return (
         <div>
             <p className="text-center">
-                Page doesn't exist!</p>
+                Page doesn't exist!
+            </p>
             <p className="text-center">
                 <a href="#">Return to main page</a>
             </p>
