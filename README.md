@@ -2,7 +2,7 @@
 
 to run:
 
-npm install
+npm install,
 npm start
 
 production build:
