@@ -9,13 +9,13 @@ const Col = ({
     children
 }) => {
     const classNames = {
-        xs: xs !== '' ? `col-xs-${xs}` : '',
+        xs: xs !== '' ? ` col-xs-${xs}` : '',
         sm: sm !== '' ? ` col-sm-${sm}` : '',
         md: md !== '' ? ` col-md-${md}` : '',
         lg: lg !== '' ? ` col-lg-${lg}` : ''
     }
 
-    let classString = ''
+    let classString = 'col'
     for (let breakpoint in classNames) {
         classString += classNames[breakpoint]
     }
