@@ -29,7 +29,6 @@ export const getAllRepos = () => {
             .then(res => res.json())
             .then(json => {
                 dispatch(getReposSuccess(json))
-                console.log(json);
                 return json
             })
             .catch(error => dispatch(getReposFailure(error)))

@@ -14,11 +14,11 @@ import 'normalize.css/normalize.css'
 import './scss/main.scss'
 
 ReactDOM.render(
-        <HashRouter>
-            <Switch>
-                <Route exact path='/' component={App} />
-                <Route component={NotFound} />
-            </Switch>
-        </HashRouter>,
+    <HashRouter>
+        <Switch>
+            <Route exact path='/' component={App} />
+            <Route component={NotFound} />
+        </Switch>
+    </HashRouter>,
     document.getElementById('root')
 )
